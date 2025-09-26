@@ -218,207 +218,190 @@
   }
 }
 
-/* Mobile Design - 80% Image, 20% Navigation (Zen Style) */
+/* Mobile Design - Simple & Clean */
 @media (max-width: 768px) {
   .hero {
     height: 100vh;
-    min-height: 500px;
     margin-top: 60px;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
+    position: relative;
   }
 
   .slideshow-container {
-    height: 80%;
+    height: 100%;
     position: relative;
   }
 
-  /* Mobile: Clean text with bottom positioning */
+  .welcome-slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  /* Simple overlay for better text readability */
+  .welcome-slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 1;
+  }
+
   .slide-content {
-    position: absolute !important;
-    bottom: 20px !important;
-    left: 1rem !important;
-    right: 1rem !important;
-    padding: 1.5rem !important;
-    margin: 0 !important;
-    max-width: none !important;
-    width: calc(100% - 2rem) !important;
-    background: none !important;
-    text-align: left !important;
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+    right: 20px;
+    z-index: 2;
+    text-align: center;
   }
 
   .slide-content h1 {
-    font-size: 2rem;
-    line-height: 1.2;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #ffffff;
     margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .slide-content h1::after {
-    width: 50px;
-    height: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .slide-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    max-width: none;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   }
 
   .cta-button {
-    width: 100%;
-    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: #000000;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
     font-size: 1rem;
-    min-height: 48px;
-    border-radius: 8px;
-    text-align: center;
-    justify-content: center;
+    display: inline-block;
+    transition: all 0.3s ease;
   }
 
+  .cta-button:hover {
+    background: #4ade80;
+    transform: translateY(-1px);
+  }
+
+  /* Simple navigation at bottom */
   .slideshow-controls {
-    height: 20%;
-    position: relative;
-    bottom: auto;
-    gap: 1.5rem;
-    padding: 1.5rem 1rem;
-    background: rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(15px);
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 3;
   }
 
   .prev-slide,
   .next-slide {
-    width: 48px;
-    height: 48px;
-    font-size: 1.1rem;
-    padding: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
     -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
 
-  .prev-slide:active,
-  .next-slide:active {
-    background: rgba(74, 222, 128, 0.8) !important;
-    transform: scale(0.95);
-    transition: all 0.1s ease;
+  .prev-slide:hover,
+  .next-slide:hover {
+    background: var(--primary-color);
+    color: #000000;
+    transform: scale(1.1);
   }
 
   .slideshow-dots {
-    gap: 0.6rem;
+    display: flex;
+    gap: 8px;
   }
 
   .dot {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
 
-  .dot.active::before {
-    width: 6px;
-    height: 6px;
+  .dot.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
   }
 }
 
 /* Small mobile styles */
 @media (max-width: 480px) {
-  .hero {
-    min-height: 400px;
-    margin-top: 50px;
-    padding: 0;
-  }
-
   .slide-content {
-    bottom: 10px;
-    left: 0.5rem;
-    right: 0.5rem;
-    width: calc(100% - 1rem);
-    padding: 1rem;
-    background: none;
+    bottom: 80px;
+    left: 15px;
+    right: 15px;
   }
 
   .slide-content h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-bottom: 0.8rem;
   }
 
-  .slide-content h1::after {
-    width: 40px;
-    height: 2px;
-  }
-
   .slide-content p {
-    font-size: 0.9rem;
-    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .cta-button {
-    padding: 0.9rem 1.5rem;
-    font-size: 0.95rem;
-    min-height: 44px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 
   .slideshow-controls {
-    height: 20%;
-    position: relative;
-    bottom: auto;
-    gap: 1rem;
-    padding: 1rem 0.5rem;
-    background: rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(15px);
+    bottom: 15px;
+    gap: 15px;
   }
 
   .prev-slide,
   .next-slide {
-    width: 44px;
-    height: 44px;
-    font-size: 1rem;
-  }
-
-  .slideshow-dots {
-    gap: 0.4rem;
+    width: 36px;
+    height: 36px;
   }
 
   .dot {
-    width: 10px;
-    height: 10px;
-  }
-
-  .dot.active::before {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
   }
 }
 
 /* Landscape mobile styles */
 @media (max-width: 768px) and (orientation: landscape) {
-  .hero {
-    height: 100vh;
-    min-height: 300px;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .slideshow-container {
-    height: 80%;
-    position: relative;
-  }
-
   .slide-content {
-    bottom: 20px;
-    padding: 1rem 2rem;
-    background: none;
+    bottom: 60px;
+    left: 30px;
+    right: 30px;
   }
 
   .slide-content h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0.6rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
   }
 
   .slide-content p {
@@ -427,18 +410,13 @@
   }
 
   .slideshow-controls {
-    height: 20%;
-    position: relative;
-    bottom: auto;
-    gap: 1.5rem;
-    padding: 0.8rem;
-    background: rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(15px);
+    bottom: 15px;
+    gap: 15px;
   }
 
   .prev-slide,
   .next-slide {
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
   }
 }
