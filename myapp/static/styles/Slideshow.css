@@ -218,22 +218,29 @@
   }
 }
 
-/* Mobile Design - Completely Different Approach */
+/* Mobile Design - 80% Image, 20% Navigation (Zen Style) */
 @media (max-width: 768px) {
   .hero {
     height: 100vh;
     min-height: 500px;
     margin-top: 60px;
-    padding: 0 1rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slideshow-container {
+    height: 80%;
+    position: relative;
   }
 
   /* Mobile: Clean text with bottom positioning */
   .slide-content {
     position: absolute;
-    bottom: 120px;
+    bottom: 20px;
     left: 1rem;
     right: 1rem;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
     margin: 0;
     max-width: none;
     width: calc(100% - 2rem);
@@ -272,9 +279,13 @@
   }
 
   .slideshow-controls {
-    bottom: 1.5rem;
+    height: 20%;
+    position: relative;
+    bottom: auto;
     gap: 1.5rem;
-    padding: 0 1rem;
+    padding: 1.5rem 1rem;
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(15px);
   }
 
   .prev-slide,
@@ -283,6 +294,20 @@
     height: 48px;
     font-size: 1.1rem;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .prev-slide:active,
+  .next-slide:active {
+    background: rgba(74, 222, 128, 0.8) !important;
+    transform: scale(0.95);
+    transition: all 0.1s ease;
   }
 
   .slideshow-dots {
@@ -305,15 +330,15 @@
   .hero {
     min-height: 400px;
     margin-top: 50px;
-    padding: 0 0.5rem;
+    padding: 0;
   }
 
   .slide-content {
-    bottom: 100px;
+    bottom: 10px;
     left: 0.5rem;
     right: 0.5rem;
     width: calc(100% - 1rem);
-    padding: 1.5rem 1rem;
+    padding: 1rem;
     background: none;
   }
 
@@ -339,9 +364,13 @@
   }
 
   .slideshow-controls {
-    bottom: 1rem;
+    height: 20%;
+    position: relative;
+    bottom: auto;
     gap: 1rem;
-    padding: 0 0.5rem;
+    padding: 1rem 0.5rem;
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(15px);
   }
 
   .prev-slide,
@@ -372,11 +401,18 @@
     height: 100vh;
     min-height: 300px;
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slideshow-container {
+    height: 80%;
+    position: relative;
   }
 
   .slide-content {
-    bottom: 80px;
-    padding: 1.5rem 2rem;
+    bottom: 20px;
+    padding: 1rem 2rem;
     background: none;
   }
 
@@ -391,8 +427,13 @@
   }
 
   .slideshow-controls {
-    bottom: 1rem;
+    height: 20%;
+    position: relative;
+    bottom: auto;
     gap: 1.5rem;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(15px);
   }
 
   .prev-slide,
