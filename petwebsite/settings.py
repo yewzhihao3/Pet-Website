@@ -31,6 +31,10 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(','
 if not os.environ.get('ALLOWED_HOSTS'):
     ALLOWED_HOSTS.extend(['*.onrender.com', 'pet-website-bpxk.onrender.com'])
 
+# For Render deployment, be more permissive
+if os.environ.get('RENDER'):
+    ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 
