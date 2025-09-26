@@ -49,6 +49,8 @@ This guide will help you deploy your Django pet website to Render using SQLite.
    - `SECRET_KEY`: Generate a new secret key (you can use Django's built-in key generator)
    - `ALLOWED_HOSTS`: `your-app-name.onrender.com` (replace with your actual app name)
 
+   **Note**: If you don't set `ALLOWED_HOSTS`, the app will default to allowing `*.onrender.com` domains, which should work for most Render deployments.
+
 5. **Deploy**:
    - Click "Create Web Service"
    - Render will automatically build and deploy your application
