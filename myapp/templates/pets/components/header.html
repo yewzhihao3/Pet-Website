@@ -1,0 +1,60 @@
+<header>
+  <nav class="navbar">
+    <a href="/" class="logo">
+      <i class="fas fa-paw"></i> Eric's Exotic Pet Farm
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li>
+        <a href="{% url 'index' %}" class="nav-link"> Home </a>
+      </li>
+      <li>
+        <a href="{% url 'our_pets' %}" class="nav-link"> Our Pets </a>
+      </li>
+      <li>
+        <a href="{% url 'about' %}" class="nav-link"> About Us </a>
+      </li>
+    </ul>
+    <div class="burger" id="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("nav-links");
+    const navLinkElements = document.querySelectorAll(".nav-link");
+
+    // Toggle navigation
+    burger.addEventListener("click", function () {
+      navLinks.classList.toggle("nav-active");
+      burger.classList.toggle("toggle");
+    });
+
+    // Close navigation when clicking on a link
+    navLinkElements.forEach((link) => {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("nav-active");
+        burger.classList.remove("toggle");
+      });
+    });
+
+    // Set active link based on current path (normalize trailing slashes)
+    const normalizePath = (path) => {
+      if (!path) return "/";
+      const trimmed = path.replace(/\/+$/, "");
+      return trimmed === "" ? "/" : trimmed;
+    };
+
+    const currentPath = normalizePath(window.location.pathname);
+    navLinkElements.forEach((link) => {
+      const linkPath = normalizePath(link.pathname);
+      if (linkPath === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>

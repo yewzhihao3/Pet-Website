@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/Header.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/Footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/Home.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/About.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>About Us - Pet Website</title>
+  </head>
+  <body>
+    <div class="home">
+      <!-- Header Navigation -->
+      {% include 'pets/components/header.html' %}
+
+      <div class="about">
+        <h1 class="fade-in">About Eric's Exotic Pet Farm</h1>
+        <div class="about-content">
+          <div class="about-intro slide-in-left">
+            <p>
+              Welcome to Eric's Exotic Pet Farm – your trusted destination for
+              rare and fascinating exotic pets. Whether you're looking for a
+              unique companion or expanding your collection, we provide healthy,
+              well-cared-for animals that you won't find in regular pet shops.
+            </p>
+          </div>
+
+          <div class="about-features slide-in-right">
+            <div class="feature">
+              <i class="fas fa-paw"></i>
+              <h3>Wide Selection of Exotic Pets</h3>
+              <p>
+                From reptiles and amphibians to rare mammals and birds, we
+                specialize in unique species from around the world.
+              </p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-heart"></i>
+              <h3>Expert Care & Guidance</h3>
+              <p>
+                With over 10 years of experience, our team ensures every animal
+                is raised in a safe, healthy environment. We also guide you on
+                habitat setup, feeding, and long-term care.
+              </p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-shield-alt"></i>
+              <h3>Trusted Source</h3>
+              <p>
+                We prioritize the well-being of our animals, so you can bring
+                home your new pet with confidence.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-info fade-in">
+            <div class="info-section">
+              <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+              <p>
+                To connect pet lovers with extraordinary animals while promoting
+                responsible and ethical exotic pet ownership.
+              </p>
+            </div>
+            <div class="info-section">
+              <h2><i class="fas fa-certificate"></i> Why Choose Us?</h2>
+              <p>
+                At Eric's Exotic Pet Farm, we don't just sell pets – we help you
+                begin a rewarding journey with a truly unique companion.
+              </p>
+            </div>
+          </div>
+
+          <div class="visit-us fade-in">
+            <h2><i class="fas fa-store"></i> Visit Us</h2>
+            <p>
+              Come explore our farm and discover the incredible variety of
+              exotic pets we have available. Our knowledgeable staff will help
+              you find the perfect pet that suits your lifestyle and experience
+              level.
+            </p>
+            <div class="map-container">
+              {% include 'pets/components/map.html' %}
+            </div>
+            <div class="address-navigation">
+              <div class="address">
+                <i class="fas fa-map-pin"></i>
+                <p>
+                  4, Jalan Bunga Raya, Assam Kumbang, 34000 Taiping, Perak,
+                  Malaysia
+                </p>
+              </div>
+              <button class="navigate-button" onclick="openNavigation()">
+                <i class="fas fa-directions"></i>
+                Navigate
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Section -->
+      {% include 'pets/components/footer.html' %}
+
+      <!-- Floating WhatsApp Button -->
+      {% include 'pets/components/whatsapp.html' %}
+    </div>
+
+    <script>
+      function openNavigation() {
+        const address =
+          "4, Jalan Bunga Raya, Assam Kumbang, 34000 Taiping, Perak, Malaysia";
+        const encodedAddress = encodeURIComponent(address);
+        window.open(
+          `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`,
+          "_blank"
+        );
+      }
+
+      // Intersection Observer for animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document
+          .querySelectorAll(
+            "section, .about-intro, .about-features, .about-info, .visit-us"
+          )
+          .forEach((element) => {
+            observer.observe(element);
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/Header.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/Footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/Home.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/OurPets.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>Our Pets - Pet Website</title>
+  </head>
+  <body>
+    <div class="home">
+      <!-- Header -->
+      {% include 'pets/components/header.html' %}
+
+      <!-- Main Section -->
+      <div class="our-pets">
+        <h1>Our Exotic Pets</h1>
+        <div class="pets-intro">
+          <p>Discover our collection of exotic pets</p>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+          <button class="active" onclick="filterPets('all')">All</button>
+          {% for category in categories %}
+          <button onclick="filterPets('{{ category.id }}')">
+            {{ category.name }}
+          </button>
+          {% endfor %}
+        </div>
+
+        <!-- Pet Grid -->
+        <div class="pet-grid" id="petGrid">
+          {% for pet in pets %}
+          <div class="pet-card" data-category="{{ pet.category.id }}">
+            <div class="pet-image-container">
+              <img src="{{ pet.image_or_default_url }}" alt="{{ pet.name }}" />
+            </div>
+            <div class="pet-info">
+              <h3>{{ pet.name }}</h3>
+              <p class="pet-species">{{ pet.species }}</p>
+              <p class="pet-breed">{{ pet.breed }}</p>
+              <p class="pet-price">RM {{ pet.price }}</p>
+            </div>
+          </div>
+          {% empty %}
+          <p class="no-pets">No pets found.</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Footer -->
+      {% include 'pets/components/footer.html' %}
+      <!--Whatsapp Button-->
+      {% include 'pets/components/whatsapp.html' %}
+    </div>
+
+    <script>
+      function filterPets(categoryId) {
+        const cards = document.querySelectorAll(".pet-card");
+        const buttons = document.querySelectorAll(".category-filter button");
+
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        cards.forEach((card) => {
+          if (categoryId === "all" || card.dataset.category === categoryId) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

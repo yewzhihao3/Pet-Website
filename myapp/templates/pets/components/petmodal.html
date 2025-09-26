@@ -1,0 +1,89 @@
+{% load static %}
+<div class="modal-overlay" id="petModal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modalPetName">Pet Name</h2>
+      <button
+        class="modal-close-button"
+        onclick="closeModal()"
+        aria-label="Close"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="pet-details-grid">
+        <div class="pet-image-container">
+          <img id="modalPetImage" src="" alt="Pet Image" class="pet-image" />
+        </div>
+        <div class="pet-info">
+          <div class="pet-details">
+            <p class="pet-detail-item">
+              <span class="pet-detail-label">Species:</span>
+              <span id="modalPetSpecies">Species</span>
+            </p>
+            <p class="pet-detail-item">
+              <span class="pet-detail-label">Breed:</span>
+              <span id="modalPetBreed">Breed</span>
+            </p>
+            <p class="pet-detail-item">
+              <span class="pet-detail-label">Price:</span>
+              <span id="modalPetPrice">Price</span>
+            </p>
+          </div>
+          <p class="pet-description" id="modalPetDescription">Description</p>
+          <button class="contact-button" onclick="openWhatsApp()">
+            Contact us for availability
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentPet = null;
+
+  function openModal(pet) {
+    currentPet = pet;
+    document.getElementById("modalPetName").textContent = pet.name;
+    document.getElementById("modalPetImage").src = pet.image_url;
+    document.getElementById("modalPetImage").alt = pet.name;
+    document.getElementById("modalPetSpecies").textContent = pet.species;
+    document.getElementById("modalPetBreed").textContent = pet.breed;
+    document.getElementById("modalPetPrice").textContent = `RM ${pet.price}`;
+    document.getElementById("modalPetDescription").textContent =
+      pet.description;
+
+    const modal = document.getElementById("petModal");
+    modal.style.display = "flex";
+    setTimeout(() => {
+      modal.classList.add("active");
+    }, 10);
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("petModal");
+    modal.classList.remove("active");
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 300);
+  }
+
+  function openWhatsApp() {
+    if (currentPet) {
+      const phoneNumber = "60165177039";
+      const message = encodeURIComponent(
+        `Hi, I'm interested in the ${currentPet.name}. Is it available?`
+      );
+      window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+    }
+  }
+
+  // Close modal on Escape key
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  });
+</script>

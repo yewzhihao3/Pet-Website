@@ -1,0 +1,215 @@
+:root {
+  --primary-color: #4caf50;
+  --secondary-color: #45a049;
+  --accent-color: #8bc34a;
+  --text-color: #ffffff;
+  --background-color: #121212;
+  --surface-color: #1e1e1e;
+}
+
+.our-pets {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+  padding-top: 100px;
+  font-family: "Arial", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.pets-intro {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pets-intro p {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.view-pets-button {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.view-pets-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #3d8b40 100%);
+}
+
+.view-pets-button i {
+  margin-right: 8px;
+}
+
+.category-filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.category-filter button {
+  padding: 10px 20px;
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-filter button:hover,
+.category-filter button.active {
+  background-color: var(--primary-color);
+}
+
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.pet-card {
+  background: linear-gradient(135deg, var(--surface-color) 0%, #2a2a2a 100%);
+  border-radius: 15px;
+  padding: 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+  cursor: pointer;
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  overflow: hidden;
+}
+
+.pet-card.animate {
+  transition: all 0.5s ease;
+}
+
+.pet-card.hidden {
+  transform: translateX(100%) translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pet-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+.pet-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  margin-bottom: 0;
+}
+
+.pet-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pet-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Pet Info Section */
+.pet-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pet-card h3 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.pet-species {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+  margin: 0;
+}
+
+.pet-breed {
+  font-size: 0.9rem;
+  color: #cccccc;
+  margin: 0;
+  font-style: italic;
+}
+
+.pet-price {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+.no-pets {
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 50px;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

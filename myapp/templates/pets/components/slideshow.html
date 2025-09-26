@@ -1,0 +1,80 @@
+{% load static %}
+<section class="hero">
+  <div class="slideshow-container">
+    <div
+      class="welcome-slide active"
+      style="background-image: url('{% static 'images/slide1.png' %}')"
+    >
+      <div class="slide-content">
+        <h1>Welcome to Eric's Exotic Pet Farm</h1>
+        <p>Discover amazing exotic pets from around the world</p>
+        <a href="/our-pets" class="cta-button">View Our Pets</a>
+      </div>
+    </div>
+    <div
+      class="welcome-slide"
+      style="background-image: url('{% static 'images/slide2.png' %}')"
+    >
+      <div class="slide-content">
+        <h1>Premium Exotic Animals</h1>
+        <p>Carefully selected and well-cared for exotic pets</p>
+        <a href="/our-pets" class="cta-button">Explore Collection</a>
+      </div>
+    </div>
+    <div
+      class="welcome-slide"
+      style="background-image: url('{% static 'images/slide3.png' %}')"
+    >
+      <div class="slide-content">
+        <h1>Expert Care & Support</h1>
+        <p>Professional guidance for your exotic pet journey</p>
+        <a href="/about" class="cta-button">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <div class="slideshow-controls">
+    <button class="prev-slide" onclick="changeSlide(-1)">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <div class="slideshow-dots">
+      <span class="dot active" onclick="setSlide(0)"></span>
+      <span class="dot" onclick="setSlide(1)"></span>
+      <span class="dot" onclick="setSlide(2)"></span>
+    </div>
+    <button class="next-slide" onclick="changeSlide(1)">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</section>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".welcome-slide");
+  const dots = document.querySelectorAll(".dot");
+
+  function showSlide(index) {
+    // Hide all slides
+    slides.forEach((slide) => slide.classList.remove("active"));
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    // Show current slide
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+    currentSlide = index;
+  }
+
+  function changeSlide(direction) {
+    const newIndex = (currentSlide + direction + slides.length) % slides.length;
+    showSlide(newIndex);
+  }
+
+  function setSlide(index) {
+    showSlide(index);
+  }
+
+  // Auto-advance slideshow every 5 seconds
+  setInterval(() => {
+    changeSlide(1);
+  }, 5000);
+</script>

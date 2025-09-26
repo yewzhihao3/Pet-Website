@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/Header.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/Footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/Slideshow.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/Home.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>Pet Website</title>
+  </head>
+  <body>
+    <div class="home">
+      <!-- Header Navigation -->
+      <div class="hero-wrapper">
+        {% include 'pets/components/header.html' %}
+        <!-- Main Hero Slideshow -->
+        {% include 'pets/components/slideshow.html' %}
+      </div>
+
+      <!-- Quick Info Section -->
+      {% include 'pets/components/quickinfo.html' %}
+      <!-- Footer Section -->
+      {% include 'pets/components/footer.html' %}
+      <!-- Floating WhatsApp Button -->
+      {% include 'pets/components/whatsapp.html' %}
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+<section class="quick-info">
+  <h2>Why Choose Us?</h2>
+  <div class="info-container">
+    <button class="scroll-button left" onclick="scrollInfo(-1)">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <div class="info-wrapper" id="quickInfoRef">
+      <div class="info-item">
+        <i class="fas fa-user-md"></i>
+        <h3>Expert Care</h3>
+        <p>Our team provides top-notch care for all our exotic pets.</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-paw"></i>
+        <h3>Wide Variety</h3>
+        <p>Find the perfect exotic pet from our diverse collection.</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-certificate"></i>
+        <h3>Ethical Sourcing</h3>
+        <p>We ensure all our pets are ethically and responsibly sourced.</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-hands-helping"></i>
+        <h3>Lifetime Support</h3>
+        <p>Get expert advice and support throughout your pet's life.</p>
+      </div>
+    </div>
+    <button class="scroll-button right" onclick="scrollInfo(1)">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</section>
+
+<script>
+  let currentInfoIndex = 0;
+  const infoItems = document.querySelectorAll(".info-item");
+  const quickInfoRef = document.getElementById("quickInfoRef");
+
+  function scrollInfo(direction) {
+    currentInfoIndex += direction;
+    if (currentInfoIndex < 0) currentInfoIndex = infoItems.length - 1;
+    if (currentInfoIndex >= infoItems.length) currentInfoIndex = 0;
+
+    if (quickInfoRef) {
+      quickInfoRef.scrollTo({
+        left: currentInfoIndex * quickInfoRef.offsetWidth,
+        behavior: "smooth",
+      });
+    }
+  }
+
+  // Auto-rotate info items every 25 seconds
+  setInterval(() => {
+    scrollInfo(1);
+  }, 25000);
+
+  // Intersection Observer for animations
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll("section").forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>

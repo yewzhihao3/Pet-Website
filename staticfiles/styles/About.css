@@ -1,0 +1,226 @@
+:root {
+  --primary-color: #4caf50;
+  --secondary-color: #45a049;
+  --accent-color: #8bc34a;
+  --text-color: #ffffff;
+  --background-color: #121212;
+  --surface-color: #1e1e1e;
+}
+
+.about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  padding-top: 100px;
+  font-family: "Arial", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.about-intro {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.feature {
+  text-align: center;
+  flex-basis: calc(33% - 20px);
+  min-width: 200px;
+  padding: 20px;
+  background-color: var(--surface-color);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature i {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 15px;
+}
+
+.feature h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.about-info {
+  background-color: var(--surface-color);
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.info-section {
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  border-left: 4px solid var(--accent-color);
+}
+
+.info-section h2 {
+  display: flex;
+  align-items: center;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.info-section h2 i {
+  margin-right: 15px;
+}
+
+.visit-us {
+  background-color: var(--surface-color);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.map-container {
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.address-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  color: var(--accent-color);
+  flex: 1;
+  min-width: 200px;
+}
+
+.address i {
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.navigate-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
+}
+
+.navigate-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.navigate-button:active {
+  transform: translateY(0);
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideIn 1s ease-out forwards;
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Stagger the fade-in animation for sections */
+.about-tabs {
+  animation-delay: 0.2s;
+}
+
+.visit-us {
+  animation-delay: 0.4s;
+}
+
+@media (max-width: 768px) {
+  .about-features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature {
+    width: 100%;
+  }
+
+  .about-info {
+    padding: 20px;
+  }
+
+  .info-section {
+    padding: 15px;
+  }
+
+  .address-navigation {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navigate-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
