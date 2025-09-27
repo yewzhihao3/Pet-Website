@@ -1,5 +1,8 @@
 # Eric's Exotic Pet Farm - Django Website
 
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge&logo=github)](https://github.com/yewzhihao3/Pet-Website)
+[![Live Website](https://img.shields.io/badge/Live-Website-green?style=for-the-badge&logo=render)](https://pet-website-bpxk.onrender.com)
+
 A Django-based web application for showcasing and selling exotic pets in Malaysia. This website serves as a digital catalog for Eric's Exotic Pet Farm, featuring a collection of unique and rare animals from around the world.
 
 ## 🐾 About the Project
@@ -30,6 +33,8 @@ Eric's Exotic Pet Farm is your trusted destination for rare and fascinating exot
 - **Styling**: Custom CSS with responsive design
 - **Icons**: Font Awesome
 - **Maps**: Google Maps integration
+- **Hosting**: [Render](https://render.com) - Cloud hosting platform
+- **Monitoring**: [UptimeRobot](https://uptimerobot.com) - Website uptime monitoring
 
 ## 📁 Project Structure
 
@@ -108,8 +113,9 @@ backend/
    ```
 
 7. **Access the website**
-   - Main site: http://127.0.0.1:8000/
-   - Admin panel: http://127.0.0.1:8000/admin/
+   - **Live Site**: [https://pet-website-bpxk.onrender.com](https://pet-website-bpxk.onrender.com)
+   - **Local Development**: http://127.0.0.1:8000/
+   - **Admin Panel**: http://127.0.0.1:8000/admin/ (local) or [https://pet-website-bpxk.onrender.com/admin/](https://pet-website-bpxk.onrender.com/admin/) (live)
 
 ## 📱 Pages & Features
 
@@ -161,6 +167,12 @@ backend/
 **Eric's Exotic Pet Farm**
 4, Jalan Bunga Raya, Assam Kumbang, 34000 Taiping, Perak, Malaysia
 
+## 🌐 Live Website
+
+**Visit the live website**: [https://pet-website-bpxk.onrender.com](https://pet-website-bpxk.onrender.com)
+
+The website is hosted on Render with UptimeRobot monitoring to ensure consistent availability.
+
 ## 🤝 Contributing
 
 This is a private project for Eric's Exotic Pet Farm. For any inquiries or suggestions, please contact the farm directly.
@@ -171,9 +183,10 @@ This project is proprietary to Eric's Exotic Pet Farm.
 
 ## 📞 Contact
 
+- **Live Website**: [https://pet-website-bpxk.onrender.com](https://pet-website-bpxk.onrender.com)
 - **WhatsApp**: Available through the website's floating WhatsApp button
 - **Location**: 4, Jalan Bunga Raya, Assam Kumbang, 34000 Taiping, Perak, Malaysia
-- **Website**: [Eric's Exotic Pet Farm](https://github.com/yewzhihao3/Pet-Website)
+- **GitHub Repository**: [Eric's Exotic Pet Farm](https://github.com/yewzhihao3/Pet-Website)
 
 ---
 
